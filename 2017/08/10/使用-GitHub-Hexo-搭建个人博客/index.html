@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="null"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>使用 GitHub+Hexo 搭建个人博客 | Hexo</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">使用 GitHub+Hexo 搭建个人博客</h1><a id="logo" href="/.">Hexo</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Start</i></a><a href="/archives/"><i class="fa fa-archive"> Archiv</i></a><a href="/about/"><i class="fa fa-user"> Über</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">使用 GitHub+Hexo 搭建个人博客</h1><div class="post-meta">Aug 10, 2017</div><div class="post-content"><h1 id="使用-GitHub-Hexo-搭建个人博客"><a href="#使用-GitHub-Hexo-搭建个人博客" class="headerlink" title="使用 GitHub+Hexo 搭建个人博客"></a>使用 GitHub+Hexo 搭建个人博客</h1><p>标签（空格分隔）： hexo github 博客</p>
+<hr>
+<h2 id="1-配置github"><a href="#1-配置github" class="headerlink" title="1.配置github"></a>1.配置github</h2><h1 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h1><p>首先需要一个github账号，没有的话先注册一个，网址：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>然后创建一个与账号同名的Repository<br><strong>一定要同名的Repository，比如帐号是myid,那新建的Repository名称应该是myid.github.io</strong></p>
+<h2 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h2><p> 安装Hexo前，需要安装Node.js和Git：</p>
+<ul>
+<li><p>Node.js <a href="https://nodejs.org/en/" target="_blank" rel="external">下载地址</a><br>  <img src="http://ouh15agcu.bkt.clouddn.com/node.js.png" alt="Node.js下载"><br>我选择的是v6.11.2 LTS</p>
+</li>
+<li><p>Git <a href="https://github.com/git-for-windows/git/releases/" target="_blank" rel="external">下载地址</a><br>我下载的是<a href="https://github.com/git-for-windows/git/releases/download/v2.12.2.windows.2/Git-2.12.2.2-64-bit.exe" target="_blank" rel="external">Git-2.12.2.2-64-bit.exe</a></p>
+</li>
+</ul>
+<p>安装好以上两个环境之后，打开打开Git-bash，输入</p>
+<pre><code>npm install -g hexo-cli
+</code></pre><p>即可完成Hexo的安装。<br>安装完成后可能提示：</p>
+<blockquote>
+<p>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0<br>(node_modules\hexo-cli\node_modules\chokidar\node_modules\fsevents):<br>npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for<br>fsevents@1.1.2: wanted {“os”:”darwin”,”arch”:”any”} (current:<br>{“os”:”win32”,”arch”:”x64”})</p>
+</blockquote>
+<p><strong>图图图</strong><br>后面的安装也会出现类似提示，忽略即可，因为 fsevent是mac osx系统的，在win或者Linux下使用了 所以会有警告。</p>
+<h2 id="3-使用Hexo进行本地建站"><a href="#3-使用Hexo进行本地建站" class="headerlink" title="3.使用Hexo进行本地建站"></a>3.使用Hexo进行本地建站</h2><p>选择一个本地的文件夹，如H:\HexoBlog<br>依次执行：</p>
+<pre><code>hexo init H:/HexoBlog
+cd H:\HexoBlog
+npm install
+</code></pre><p>如果hexo安装成功，则在C:\hexo文件夹下的文件目录为</p>
+<pre><code>.
+├── _config.yml // 网站的配置信息，你可以在此配置大部分的参数。
+├── package.json 
+├── scaffolds // 模板文件夹。当你新建文章时，Hexo会根据scaffold来建立文件。
+├── source // 存放用户资源的地方
+|   ├── _drafts
+|   └── _posts
+└── themes // 存放网站的主题。Hexo会根据主题来生成静态页面。
+</code></pre><p>详细文件或文件夹的具体含义见 <a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="external">Hexo官方文档</a><br>之后输入</p>
+<pre><code>hexo server
+</code></pre><p>此时会启动本地部署好的默认的博客网站，地址是：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
+</div><div class="tags"></div><div class="post-nav"><a href="/2017/08/09/hello-world/" class="next">Hello World</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Kategorien</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Letzte</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/使用-GitHub-Hexo-搭建个人博客/">使用 GitHub+Hexo 搭建个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/09/hello-world/">Hello World</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">Hexo.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
