@@ -1,0 +1,226 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta content="user-scalable=0" name="viewport">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>QQ撤回尾巴效果生成</title>
+<style>
+<!--html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 5;
+	font-size: 100%;
+	font-family: sans-serif;
+	vertical-align: baseline;
+	border-top-width: 0;
+	border-right-width: 0;
+	border-bottom-width: 0;
+	border-left-width: 0;
+}-->
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+  
+body {
+	background-color: #FFFFCC;
+}
+        #container {
+
+            text-align: center;
+        }
+
+        #container > p {
+	margin: 15px auto 10px 10px;
+	text-align: left;
+	font-size: 14px;
+	color: #34485f;
+        }
+
+        input {
+	/* [disabled]width: 100%; */
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	font-size: 20px;
+	background-color: #FFFFFF;
+        }
+        #input1 {
+            width: 100%;
+        }
+		#input2 {
+            width: 100%;
+        }
+
+        #output {
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	font-size: 20px;
+	background-color: #e9edf1;
+	line-height: 40px;
+	margin: 20 0 20 0;
+        }
+
+        .button {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        }
+		.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+.blue {
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+	background: #0095cd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+.blue:hover {
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+}
+.blue:active {
+	color: #80bed6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+	background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+}
+        #container {
+	box-shadow: 0px 0px 5px #bfbfbf;
+	padding: 10px 20px;
+	background-color: #E6E7E6;
+	position: absolute;
+	width: 80%;
+	max-width: 90%;
+	/*height: 60%;*/
+	left: 50%;
+	transform: translate(-50%, -50%);
+	top: 50%;
+        }
+        #preview {
+	background-color: #C5C5C5;
+	font-size: 12px;
+	text-align: center;
+	height: 20px;
+	border-radius: 10px;
+        }
+
+    </style>
+<script>
+function preview(){
+	var name = document.querySelector("input[name=name]").value;
+	var suffix = document.querySelector("input[name=suffix]").value;
+	var output = document.querySelector("#preview");
+	output.innerHTML = name+"撤回了一条消息"+suffix;
+	}
+function reverse(s){
+	return s.split("").reverse().join("");
+	}
+function gentext() {
+	var name = document.querySelector("input[name=name]").value;
+	var suffix = document.querySelector("input[name=suffix]").value;
+	suffix = reverse(suffix);
+	var output = document.querySelector("#output");
+	output.value = name+String.fromCharCode(8238)+suffix +String.fromCharCode(8237);
+	output.setSelectionRange(0, output.value.length);
+	}
+function copyText(){
+	var output=document.getElementById("output");
+	output.select();		// 选择对象
+	document.execCommand("Copy"); //执行浏览器复制命令
+	alert("已复制到剪贴板");
+	}
+/*function changePreviewLength() { 
+	var getText=document.getElementById("preview"); 
+	getText.size=getText.value.length*2+4; 
+	} */
+			
+		
+</script>
+    </script>
+</head>
+<body>
+
+<div id="container" >
+<div align="center">QQ撤回尾巴效果生成</div>
+    <p>前缀:</p>
+  <input id="input1" type="text" name="name" onChange="preview();"onInput="preview();changePreviewLength()">
+    <p>尾巴:</p>
+  <input id="input2" type="text" name="suffix" onChange="preview();"onInput="preview();changePreviewLength()">
+    <p>效果预览:</p>
+    <div align="center">
+    <table   >
+<tr>
+<td id="preview"  align="center">[前缀]撤回了一条消息[尾巴]</td>
+</tr>
+</table>
+<!--    <div id="preview"  type="text" name="preview" onChange="changePreviewLength();"> 测试</div>-->
+    <br>
+    <button class="button blue" type="button" onClick="gentext();">生成</button>
+    <input id="output" onClick="this.setSelectionRange(0, this.value.length);" >
+    <button class="button blue" type="button" onClick="copyText();">复制到剪贴板</button>
+ <br><br><br>  
+    <p>
+    <a href="../RSSreader/index.jsp" target="_blank">RSS阅读器</a> | <a href="http://easykeygen.tk/" target="_blank">EditPlus注册机</a> | <a href="http://www.cnblogs.com/leftshine/" target="_blank">leftshine</a> | <a href="../home/index.html">更多</a>
+</div>
+
+</div>
+
+</body>
+</html>
